@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		16EED42922DF9440008AF9A6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EED42822DF9440008AF9A6 /* Game.swift */; };
 		16EED42B22DF944A008AF9A6 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EED42A22DF944A008AF9A6 /* GameController.swift */; };
+		16EED42D22DFB397008AF9A6 /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EED42C22DFB397008AF9A6 /* GameBoardViewController.swift */; };
 		3AA5AE8822DF8DEF008FAE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5AE8722DF8DEF008FAE36 /* AppDelegate.swift */; };
 		3AA5AE8D22DF8DEF008FAE36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5AE8B22DF8DEF008FAE36 /* Main.storyboard */; };
 		3AA5AE8F22DF8DF1008FAE36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5AE8E22DF8DF1008FAE36 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		16EED42822DF9440008AF9A6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		16EED42A22DF944A008AF9A6 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		16EED42C22DFB397008AF9A6 /* GameBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameBoardViewController.swift; path = Game/GameBoardViewController.swift; sourceTree = SOURCE_ROOT; };
 		3AA5AE8422DF8DEF008FAE36 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AA5AE8722DF8DEF008FAE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AA5AE8C22DF8DEF008FAE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		3AA5AE9D22DF98DD008FAE36 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				16EED42C22DFB397008AF9A6 /* GameBoardViewController.swift */,
 				3AA5AE9E22DF98E3008FAE36 /* Custom Views */,
 			);
 			path = "View Controllers";
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16EED42B22DF944A008AF9A6 /* GameController.swift in Sources */,
+				16EED42D22DFB397008AF9A6 /* GameBoardViewController.swift in Sources */,
 				16EED42922DF9440008AF9A6 /* Game.swift in Sources */,
 				3AA5AE8822DF8DEF008FAE36 /* AppDelegate.swift in Sources */,
 			);

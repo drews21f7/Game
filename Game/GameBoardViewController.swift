@@ -9,22 +9,34 @@
 import UIKit
 
 class GameBoardViewController: UIViewController {
-
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet var buttons: [UIButton]!
+    
+    var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var gameIsActive = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+//
+//    @IBAction func buttonTapped(_ sender: Any) {
+//
+//    }
+//
+    
+    
+    
+//    func presentSimpleAlert(title: String) {
+//        let alertController = UIAlertAction(title: "Winner winner chicken Dinner", style: .default)
+//        let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+//
+//    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+
