@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+class GameController {
+    
+    var sharedInstance = GameController()
+    
+    var arrayOfGrids: [[String]] = [["", "", ""],
+                                    ["", "", ""],
+                                    ["", "", ""]]
+    
+    var isXTurn: Bool = true
+    
+
+}
