@@ -11,7 +11,6 @@ import QuartzCore
 
 public class SAConfettiView: UIView {
     
-    static let confettiWin = SAConfettiView()
     
     public enum ConfettiType {
         case Confetti
