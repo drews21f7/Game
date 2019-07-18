@@ -18,7 +18,7 @@ class GameBoardViewController: UIViewController {
     var activePlayer = 1
     var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var gameIsActive = true
-    let winningCombinations: [[Int]] = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8]]
+    let winningCombinations: [[Int]] = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +56,20 @@ class GameBoardViewController: UIViewController {
                     winLabel.setNeedsDisplay()
                 }
             }
+        }
+        
+        
+        gameIsActive = false
+        for state in gameState {
+            if state == 0 {
+                gameIsActive = true
+                break
+            }
+        }
+        
+        if gameIsActive == false {
+            winLabel.text = "DRAW"
+            winLabel.setNeedsDisplay()
         }
     }
     
