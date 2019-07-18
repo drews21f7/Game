@@ -19,7 +19,7 @@ class GameBoardViewController: UIViewController {
     var count = 1
     var activePlayer = 1
     var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    var gameIsActive = true
+    var gameIsActive = 1
     let winningCombinations: [[Int]] = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class GameBoardViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: AnyObject) {
-        if gameState[sender.tag-1] == 0 && gameIsActive == true {
+        if gameState[sender.tag-1] == 0 && gameIsActive == 1 {
             gameState[sender.tag-1] = activePlayer
             if (activePlayer == 1) {
                 let crossImage = UIImage(named: "X")
@@ -46,15 +46,17 @@ class GameBoardViewController: UIViewController {
         // Checks gameState array to see if a player has met a winning combination
         for combination in winningCombinations {
             if gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]] {
-                gameIsActive = false
+                gameIsActive = 2
                 
                 if gameState[combination[0]] == 1 {
+                    gameState = [1, 1, 1, 1, 1, 1, 1, 1, 1,]
                     print ("Cross wins")
                     winLabel.text = "CROSS WINS!"
   
                     
                     
                 } else {
+                    gameState = [2, 2, 2, 2, 2, 2, 2, 2, 2]
                     winLabel.text = "CIRCLE WINS!"
                     print ("Circle wins")
                     SAConfettiView.initialize()
@@ -62,19 +64,22 @@ class GameBoardViewController: UIViewController {
                     winLabel.setNeedsDisplay()
 
                 }
+            } else if gameIsActive == 1 {
+                for state in gameState {
+                    if state != 0 {
+                        gameIsActive = 3
+                        print (gameIsActive)
+                    } else if state == 0 {
+                        gameIsActive = 1
+                        print (gameIsActive)
+                        break
+                    }
+                }
             }
         }
         
-        
-        gameIsActive = false
-        for state in gameState {
-            if state == 0 {
-                gameIsActive = true
-                break
-            }
-        }
-        
-        if gameIsActive == false {
+        if gameIsActive == 3 {
+            print ("Draw")
             winLabel.text = "DRAW"
             winLabel.setNeedsDisplay()
         }
@@ -84,7 +89,7 @@ class GameBoardViewController: UIViewController {
     @IBAction func playAgainButtonTapped(_ sender: Any) {
         gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         activePlayer = 1
-        gameIsActive = true
+        gameIsActive = 1
         winLabel.text = ""
         
         // Resets button images back to nil
