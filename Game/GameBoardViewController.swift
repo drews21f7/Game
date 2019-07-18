@@ -19,7 +19,7 @@ class GameBoardViewController: UIViewController {
     var activePlayer = 1
     var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var gameIsActive = true
-    let winningCombinations: [[Int]] = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8]]
+    let winningCombinations: [[Int]] = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,26 +50,44 @@ class GameBoardViewController: UIViewController {
                 if gameState[combination[0]] == 1 {
                     print ("Cross wins")
                     winLabel.text = "CROSS WINS!"
-                    
-                    
-                    
+                    winLabel.setNeedsDisplay()
+ master
                 } else {
                     winLabel.text = "CIRCLE WINS!"
                     print ("Circle wins")
+                    winLabel.setNeedsDisplay()
                 }
-                //winLabel.isHidden = false
-                winLabel.setNeedsDisplay()
             }
+        }
+        
+        
+        gameIsActive = false
+        for state in gameState {
+            if state == 0 {
+                gameIsActive = true
+                break
+            }
+        }
+        
+        if gameIsActive == false {
+            winLabel.text = "DRAW"
+            winLabel.setNeedsDisplay()
         }
     }
     
     
     @IBAction func playAgainButtonTapped(_ sender: Any) {
-        //Hopefully this works! I have no idea what is happening!!!! AAAHHH!!!!
+        gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        activePlayer = 1
+        gameIsActive = true
+        winLabel.text = ""
         
+        // Resets button images back to nil
+        for tag in 1...9 {
+            let button = view.viewWithTag(tag) as! UIButton
+            button.setImage(nil, for: .normal)
+        }
     }
-    
-    
 }
 
 
