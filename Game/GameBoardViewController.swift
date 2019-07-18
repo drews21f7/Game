@@ -12,33 +12,52 @@ class GameBoardViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet var buttons: [UIButton]!
+    @IBOutlet weak var winLabel: UILabel!
     
     var count = 1
     var activePlayer = 1
     var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var gameIsActive = true
+    let winningCombinations: [[Int]] = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        winLabel.text = ""
         // Do any additional setup after loading the view.
     }
     
     @IBAction func buttonTapped(_ sender: AnyObject) {
-//        if (gameState[sender.tag-1] == 0 && gameIsActive == true) {
-//            gameState[sender.tag-1] = activePlayer
-//            if (activePlayer == 1) {
-//                sender.setImage(UIImage(named:"X"), for: UIControl.State()) {
-//                    activePlayer = 2
-//                } else {
-//                    sender.setImage(UIImage(named: "O"), for: UIControl.State) {
-//                        activePlayer = 1
-//                    }
-//                }
-//
-//            }
-//
-//        }
+        if gameState[sender.tag-1] == 0 && gameIsActive == true {
+            gameState[sender.tag-1] = activePlayer
+            if (activePlayer == 1) {
+                let crossImage = UIImage(named: "X")
+                sender.setImage(crossImage, for: .normal)
+                activePlayer = 2
+                print (gameState)
+            }  else {
+                    let circleImage = UIImage(named: "O")
+                    sender.setImage(circleImage, for: .normal)
+                    self.activePlayer = 1
+                    print (gameState)
+                }
+        }
+        // Checks gameState array to see if a player has met a winning combination
+        for combination in winningCombinations {
+            if gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]] {
+                gameIsActive = false
+                
+                if gameState[combination[0]] == 1 {
+                    print ("Cross wins")
+                    winLabel.text = "CROSS WINS!"
+                    
+                } else {
+                    winLabel.text = "CIRCLE WINS!"
+                    print ("Circle wins")
+                }
+                //winLabel.isHidden = false
+                winLabel.setNeedsDisplay()
+            }
+        }
     }
     
     
