@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import QuartzCore
 
-class ConfettiView: UIView {
+class ConfettiController {
+    
+    
 
-
+    
 }
