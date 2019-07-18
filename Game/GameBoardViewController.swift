@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class GameBoardViewController: UIViewController {
     
@@ -49,6 +50,8 @@ class GameBoardViewController: UIViewController {
                 if gameState[combination[0]] == 1 {
                     print ("Cross wins")
                     winLabel.text = "CROSS WINS!"
+                    
+                    
                     
                 } else {
                     winLabel.text = "CIRCLE WINS!"

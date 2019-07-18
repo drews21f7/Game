@@ -8,10 +8,3 @@
 
 import UIKit
 import QuartzCore
-
-class ConfettiController {
-    
-    
-
-    
-}
