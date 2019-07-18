@@ -28,7 +28,6 @@ class GameBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         winLabel.text = ""
-        // Do any additional setup after loading the view.
     }
     
     func winner() {
@@ -58,12 +57,10 @@ class GameBoardViewController: UIViewController {
                 let crossImage = UIImage(named: "X")
                 sender.setImage(crossImage, for: .normal)
                 activePlayer = 2
-                print (gameState)
             }  else {
                 let circleImage = UIImage(named: "O")
                 sender.setImage(circleImage, for: .normal)
                 self.activePlayer = 1
-                print (gameState)
             }
         }
     
@@ -74,7 +71,6 @@ class GameBoardViewController: UIViewController {
                 
                 if gameState[combination[0]] == 1 {
                     gameState = [1, 1, 1, 1, 1, 1, 1, 1, 1,]
-                    print ("Cross wins")
                     winLabel.text = "CROSS WINS!"
                     winner()
        
@@ -82,13 +78,13 @@ class GameBoardViewController: UIViewController {
                 } else {
                     gameState = [2, 2, 2, 2, 2, 2, 2, 2, 2]
                     winLabel.text = "CIRCLE WINS!"
-                    print ("Circle wins")
                     winner()
                     
                     
                     winLabel.setNeedsDisplay()
                     
                 }
+                // Checks if game is to be a draw
             } else if gameIsActive == 1 {
                 for state in gameState {
                     if state != 0 {
@@ -104,7 +100,6 @@ class GameBoardViewController: UIViewController {
         }
         
         if gameIsActive == 3 {
-            print ("Draw")
             winLabel.text = "DRAW"
             winLabel.setNeedsDisplay()
         }
