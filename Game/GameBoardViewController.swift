@@ -49,24 +49,29 @@ class GameBoardViewController: UIViewController {
                 if gameState[combination[0]] == 1 {
                     print ("Cross wins")
                     winLabel.text = "CROSS WINS!"
-                    
+                    winLabel.setNeedsDisplay()
                 } else {
                     winLabel.text = "CIRCLE WINS!"
                     print ("Circle wins")
+                    winLabel.setNeedsDisplay()
                 }
-                //winLabel.isHidden = false
-                winLabel.setNeedsDisplay()
             }
         }
     }
     
     
     @IBAction func playAgainButtonTapped(_ sender: Any) {
-        //Hopefully this works! I have no idea what is happening!!!! AAAHHH!!!!
+        gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        activePlayer = 1
+        gameIsActive = true
+        winLabel.text = ""
         
+        // Resets button images back to nil
+        for tag in 1...9 {
+            let button = view.viewWithTag(tag) as! UIButton
+            button.setImage(nil, for: .normal)
+        }
     }
-    
-    
 }
 
 
