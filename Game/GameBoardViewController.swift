@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import SAConfettiView
 
 class GameBoardViewController: UIViewController {
     
@@ -50,12 +51,23 @@ class GameBoardViewController: UIViewController {
                 if gameState[combination[0]] == 1 {
                     print ("Cross wins")
                     winLabel.text = "CROSS WINS!"
+<<<<<<< HEAD
+                    SAConfettiView.initialize()
+                    
+                    
+                    
+                } else {
+                    winLabel.text = "CIRCLE WINS!"
+                    print ("Circle wins")
+                    SAConfettiView.initialize()
+=======
                     winLabel.setNeedsDisplay()
  master
                 } else {
                     winLabel.text = "CIRCLE WINS!"
                     print ("Circle wins")
                     winLabel.setNeedsDisplay()
+>>>>>>> e78e2b6d5c20167d9c9fb70df4eb91531a749196
                 }
             }
         }
